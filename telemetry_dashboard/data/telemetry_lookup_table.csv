@@ -1,0 +1,29 @@
+enabled,can_id,signal_name,page,start_byte,start_bit,bit_length,byte_length,signed,data_type,byte_order,scale,offset,unit,minimum,maximum,warning_low,warning_high,fault_low,fault_high,enum_map,suggested_send_rate_hz,notes
+true,0xC0,Torque Command,VCU,0,0,16,2,false,integer,little,0.1,0,Nm,-200,200,-150,150,-190,190,,50,E8 03 gives raw 1000 and scaled 100 Nm
+true,0xC0,Speed Command,VCU,2,0,16,2,true,integer,little,1,0,rpm,-20000,20000,,,,,,50,
+true,0xC0,Direction Command,VCU,4,0,8,1,false,enumeration,little,1,0,,,,,,,,"{""0"":""Reverse"",""1"":""Forward""}",20,
+true,0xC0,Inverter Enable,VCU,5,0,1,,false,boolean,little,1,0,,,,,,,,,50,
+true,0xC0,Commanded Torque Limit,VCU,6,0,16,2,false,integer,little,0.1,0,Nm,0,200,,150,,190,,20,
+true,0x10,Accumulator Voltage,High Voltage,0,0,16,2,false,integer,little,0.01,0,V,0,600,300,500,250,550,,20,
+true,0x10,Accumulator Current,High Voltage,2,0,16,2,true,integer,little,0.1,0,A,-500,500,-350,350,-450,450,,50,
+true,0x10,Accumulator State of Charge,High Voltage,4,0,8,1,false,integer,little,0.5,0,%,0,100,20,90,10,95,,10,
+true,0x10,AMS Fault,Faults,5,0,1,,false,boolean,little,1,0,,,,,,,,,20,
+true,0x11,Maximum Cell Voltage,High Voltage,0,0,16,2,false,integer,little,0.001,0,V,0,5,3,4.15,2.5,4.25,,10,
+true,0x11,Minimum Cell Voltage,High Voltage,2,0,16,2,false,integer,little,0.001,0,V,0,5,3,4.15,2.5,4.25,,10,
+true,0x11,Maximum Cell Temperature,High Voltage,4,0,16,2,true,integer,little,0.1,0,degC,-40,120,,50,,60,,10,
+true,0x20,Low Voltage Battery Voltage,Low Voltage,0,0,16,2,false,integer,little,0.01,0,V,0,20,11,14.8,10,16,,5,
+true,0x20,PDM Current,Low Voltage,2,0,16,2,false,integer,little,0.1,0,A,0,200,,120,,160,,20,
+true,0x20,Brake Light Active,Low Voltage,4,0,1,,false,boolean,little,1,0,,,,,,,,,20,
+true,0x30,Vehicle Speed,Vehicle Dynamics,0,0,16,2,false,integer,little,0.01,0,km/h,0,250,,180,,220,,50,
+true,0x30,Longitudinal Acceleration,Vehicle Dynamics,2,0,16,2,true,integer,little,0.001,0,g,-5,5,-3,3,-4,4,,100,
+true,0x30,Lateral Acceleration,Vehicle Dynamics,4,0,16,2,true,integer,little,0.001,0,g,-5,5,-3,3,-4,4,,100,
+true,0x30,Yaw Rate,Vehicle Dynamics,6,0,16,2,true,integer,little,0.1,0,deg/s,-1000,1000,-700,700,-900,900,,100,
+false,,S_AUX +,High Voltage,,,,,,,,,,V,,,,,,,,,"Add the real CAN ID and byte mapping, then set enabled=true."
+false,,S_AUX -,High Voltage,,,,,,,,,,V,,,,,,,,,"Add the real CAN ID and byte mapping, then set enabled=true."
+false,,DCL,High Voltage,,,,,,,,,,A,,,,,,,,,"Discharge current limit. Add real mapping, then enable."
+false,,CCL,High Voltage,,,,,,,,,,A,,,,,,,,,"Charge current limit. Add real mapping, then enable."
+false,,Motor Temperature,High Voltage,,,,,,,,,,degC,,,,,,,,,"Add real mapping, then enable."
+false,,Motor Controller Temperature,High Voltage,,,,,,,,,,degC,,,,,,,,,"Add real mapping, then enable."
+false,,Fan Speed,High Voltage,,,,,,,,,,rpm,,,,,,,,,"Add real mapping, then enable."
+false,,VCU State,Low Voltage,,,,,,,,,,,,,,,,,,,"0=GLV On/Neutral; 1=Precharge; 2=Ready to Drive; 3=Fault. Add real mapping, then enable."
+false,,IMD Fault,Faults,,,,,,,,,,,,,,,,,,,"Critical IMD fault signal. 0=clear, non-zero=fault. Add real mapping, then enable."

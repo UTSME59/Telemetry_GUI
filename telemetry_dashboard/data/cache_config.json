@@ -1,0 +1,7 @@
+{
+  "history_seconds": 60.0,
+  "max_history_points_per_signal": 5000,
+  "stale_after_periods": 3.0,
+  "health_refresh_ms": 500,
+  "lookup_table_path": "data/telemetry_lookup_table.csv"
+}

@@ -1,0 +1,55 @@
+{
+  "application": {
+    "name": "UTS Motorsports Telemetry Dashboard",
+    "version": "0.6.0"
+  },
+  "serial": {
+    "auto_connect": true,
+    "preferred_port": "",
+    "baud_rate": 115200,
+    "data_bits": 8,
+    "parity": "N",
+    "stop_bits": 1.0,
+    "read_timeout_seconds": 0.0,
+    "write_timeout_seconds": 0.5,
+    "scan_interval_ms": 1000,
+    "connection_check_interval_ms": 500,
+    "reconnect_interval_ms": 2000,
+    "receiver": {
+      "vid": "",
+      "pid": "",
+      "serial_number": "",
+      "manufacturer": "",
+      "description": ""
+    },
+    "connect_to_any_device": true,
+    "read_interval_ms": 10
+  },
+  "logging": {
+    "level": "INFO",
+    "directory": "logs",
+    "filename": "telemetry_dashboard.log",
+    "console_output": true,
+    "log_serial_connection": true,
+    "log_frame_statistics": true,
+    "log_received_frames": false,
+    "log_decoded_signals": false
+  },
+  "protocol": {
+    "start_of_frame": "AA55",
+    "can_id_length_bytes": 2,
+    "can_id_byte_order": "little",
+    "dlc_length_bytes": 1,
+    "maximum_dlc": 8,
+    "crc_length_bytes": 2,
+    "crc_byte_order": "little",
+    "crc_policy": "disabled",
+    "crc_algorithm": "none"
+  },
+  "telemetry": {
+    "lookup_table": "telemetry_dashboard/data/telemetry_lookup_table.csv",
+    "enable_signal_decoding": true,
+    "cache_messages": true,
+    "cache_size": 500
+  }
+}
